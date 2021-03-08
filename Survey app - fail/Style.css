@@ -1,0 +1,70 @@
+header {
+  margin: 50px auto;
+  font-family: 'Nanum';
+  text-align: center;
+  width: 35rem;
+ 
+}
+
+* {
+  font-family: sans-serif, monospace;
+  font-size: 1.1rem;
+  color: black;
+}
+
+
+body{
+  font-family: 'Nanum'; sans-serif;
+ background: linear-gradient(to right, rgba(30, 75, 115, 0.5), rgba(255, 255, 255, 0.6)), url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6') ;
+  position: relative;
+  background-size: cover;
+  line-height: 1.8rem;
+}
+
+#survey-form {
+  border-radius: 1.2rem;
+  background: rgba(0,37,52,0.53);
+  margin: auto;
+  padding: 35px 35px 35px 35px;
+  width: 35rem;
+  text-align: center;
+}
+
+p {
+  margin-bottom: 1.1rem;
+}
+label {
+  display: block;
+  border-radius: 1.2rem;
+}
+::placeholder {
+  font-size: 0.7rem;
+  color: black;
+}
+textarea {
+  width: 100%;
+  resize: vertical;
+  line-height: 10px;
+}
+ form-control, select {
+  width: 25rem;
+  padding: 14px 30px;
+  margin: 8px 0;
+  border-radius: 0.5rem;
+  border: none;
+   font-size: 0.9rem;
+}
+button:hover {
+  background-color: rgba(238, 226, 68, 0.43);
+}
+ {
+  margin: auto auto;
+  width: 100px;
+}
+@media (max-width: 800px) {
+  header, main, #survey-form {
+    margin: auto;
+    width: 90%;
+  }
+}
+
