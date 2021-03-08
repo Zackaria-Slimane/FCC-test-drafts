@@ -1,0 +1,283 @@
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+
+
+<aside class="nav">
+  <nav id="navbar">
+    <header id="nav-header" class="hero-header">The Javascript language</header>
+    <ul>
+      <li class="nav-list">
+        <a class="nav-link" href="#JS_Introduction">JS Introduction</a>
+      </li>
+      <li class="nav-list">
+        <a class="nav-link" href="#JS_Fundamentals">JS Fundamentals</a>
+      </li>
+      <li class="nav-list">
+        <a class="nav-link" href="#Code_Quality">Code Quality</a>
+      </li>
+      <li class="nav-list">
+        <a class="nav-link" href="#Objects">Objects</a>
+      </li>
+      <li class="nav-list">
+        <a class="nav-link" href="#Data_types">Data types</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+<main id="main-doc">
+  <section class="main-section" id="JS_Introduction">
+    <header class="section-header">JS Introduction</header>
+    <h1 class="section-title">What is JavaScript ?</h1>
+    <p class="text-content">JavaScript was initially created to “make web pages alive”.
+      The programs in this language are called scripts. They can be written right in a web page’s HTML and run automatically as the page loads.
+      Scripts are provided and executed as plain text. They don’t need special preparation or compilation to run.
+      In this aspect, JavaScript is very different from another language called Java.</p>
+    <h1 class="section-title">What can in-browser JavaScript do?</h1>
+    <p class="text-content">Modern JavaScript is a “safe” programming language. It does not provide low-level access to memory or CPU, because it was initially created for browsers which do not require it.
+      JavaScript’s capabilities greatly depend on the environment it’s running in. For instance, Node.js supports functions that allow JavaScript to read/write arbitrary files, perform network requests, etc.
+      In-browser JavaScript can do everything related to webpage manipulation, interaction with the user, and the webserver.</p>
+    <ul class="text-list">
+      <li>Add new HTML to the page, change the existing content, modify styles.
+        React to user actions, run on mouse clicks, pointer movements, key presses.</li>
+      <li>Send requests over the network to remote servers, download and upload files (so-called AJAX and COMET technologies).</li>
+      <li>Get and set cookies, ask questions to the visitor, show messages.
+        Remember the data on the client-side (“local storage”).</li>
+    </ul>
+    <h1 class="section-title">What makes JavaScript unique?</h1>
+    <p class="text-content">JavaScript is the only browser technology that combines these three things.
+
+      That’s what makes JavaScript unique. That’s why it’s the most widespread tool for creating browser interfaces.
+
+      That said, JavaScript also allows to create servers, mobile applications, etc.</p>
+    <ul class="text-list">
+      <li>Full integration with HTML/CSS.</li>
+      <li>Simple things are done simply.</li>
+      <li>Support by all major browsers and enabled by default.</li>
+    </ul>
+  </section>
+  
+  <section class="main-section" id="JS_Fundamentals">
+    <header class="section-header">JS Fundamentals</header>
+    <h1 class="section-title">The “script” tag</h1>
+    <p class="text-content">
+      JavaScript programs can be inserted almost anywhere into an HTML document using the script
+    </p>
+    <div class="codebox">
+    <pre> <code>< <span> p </span> > this is a test code
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. < <span> p </span> ></code> </pre> </div>
+
+    <h1 class="section-title">Modern markup</h1>
+    <p class="text-content">The script tag has a few attributes that are rarely used nowadays but can still be found in old code</p>
+    <h2> The type attribute script type script</h2>
+    <p class="text-content">The old HTML standard, HTML4, required a script to have a type. Usually it was type text/javascript. It’s not required anymore. Also, the modern HTML standard totally changed the meaning of this attribute. Now, it can be used for JavaScript modules. But that’s an advanced topic, we’ll talk about modules in another part of the tutorial.</p>
+    <h2>Comments before and after scripts.</h2>
+    <div class="codebox"> <code>
+      <<span>script</span> type = "test/javascript" <<span>/script</span>>
+</code> </div>
+    <p class="text-content">This trick isn’t used in modern JavaScript. These comments hide JavaScript code from old browsers that didn’t know how to process the script tag. Since browsers released in the last 15 years don’t have this issue, this kind of comment can help you identify really old code.</p>
+  <div class="codebox">  <code>
+      <<span>script</span> src="/path/to/script.js><<span>/script</span>>
+</code> </div>
+    <p class="text-content">Here, /path/to/script.js is an absolute path to the script from the site root. One can also provide a relative path from the current page. For instance, src="script.js" would mean a file "script.js" in the current folder.
+      We can give a full URL as well. To attach several scripts, use multiple tags:</p>
+    <div class="codebox"> <code>
+      <<span>script</span> src="/js/script1.js"><<span>/script</span>>
+</code> </div>
+
+  </section>
+
+  <section class="main-section" id="Code_Quality">
+    <header class="section-header">Code Quality</header>
+    <h1 class="section-title">Debugging in Chrome</h1>
+    <p class="text-content">Before writing more complex code, let’s talk about debugging.
+
+      Debugging is the process of finding and fixing errors within a script. All modern browsers and most other environments support debugging tools – a special UI in developer tools that makes debugging much easier. It also allows to trace the code step by step to see what exactly is going on.
+
+      We’ll be using Chrome here, because it has enough features, most other browsers have a similar process.</p>
+    <h2>The “Sources” panel</h2>
+    <div class="alist">
+      <ul>
+        <li>Open the example page in Chrome.</li>
+        <li>Turn on developer tools with F12 (Mac: Cmd+Opt+I).</li>
+        <li>Select the Sources panel.</li>
+      </ul>
+      <p class="list-text">The Sources panel has 3 parts:</p>
+      <ol>
+        <li>The File Navigator pane lists HTML, JavaScript, CSS and other files, including images that are attached to the page. Chrome extensions may appear here too.</li>
+        <li>The Code Editor pane shows the source code.</li>
+        <li>The JavaScript Debugging pane is for debugging, we’ll explore it soon.</li>
+      </ol>
+    </div>
+
+    <h2>Debugger command</h2>
+    <p class="text-content">We can also pause the code by using the debugger command in it, like this:</p>
+  <div class="codebox">  <code>function hello(name) {
+      let phrase = `Hello, ${name}!`;
+    debugger; // <-- the debugger stops here say(phrase); }</code> </div>
+        <p class="text-content">the informational dropdowns to the right (labeled with arrows). They allow you to examine the current code state</p>
+        <ol>
+          <li>
+            Watch – shows current values for any expressions.
+            You can click the plus + and input an expression. The debugger will show its value at any moment, automatically recalculating it in the process of execution.
+          </li>
+          <li>
+            Call Stack – shows the nested calls chain.
+            At the current moment the debugger is inside hello() call, called by a script in index.html (no function there, so it’s called “anonymous”).
+            If you click on a stack item (e.g. “anonymous”), the debugger jumps to the corresponding code, and all its variables can be examined as well.
+          </li>
+          <li>
+
+            Scope – current variables.
+
+            Local shows local function variables. You can also see their values highlighted right over the source.
+
+            Global has global variables (out of any functions).
+
+            There’s also this keyword there that we didn’t study yet, but we’ll do that soon.
+          </li>
+        </ol>
+  </section>
+    
+  <section class="main-section" id="Objects">
+    <header class="section-header">Objects</header>
+    <h1 class="section-title">Objects : the basics</h1>
+    <p class="text-content">As we know from the chapter Data types, there are eight data types in JavaScript. Seven of them are called “primitive”, because their values contain only a single thing (be it a string or a number or whatever).
+
+      In contrast, objects are used to store keyed collections of various data and more complex entities. In JavaScript, objects penetrate almost every aspect of the language. So we must understand them first before going in-depth anywhere else.
+
+      An object can be created with figure brackets {…} with an optional list of properties. A property is a “key: value” pair, where key is a string (also called a “property name”), and value can be anything.
+
+      We can imagine an object as a cabinet with signed files. Every piece of data is stored in its file by the key. It’s easy to find a file by its name or add/remove a file.</p>
+    <div class="codebox">
+      <pre> <code>
+        let user = new Object(); // "object constructor" syntax
+        let user = {}; // "object literal" syntax
+      </code> </pre>
+    </div>
+    
+    <h2>Literals and properties</h2>
+    <p class="text-content">We can immediately put some properties into {...} as “key: value” pairs:</p>
+ <div class="codebox"> <pre> <code>let user = { // an object
+      name: "John", // by key "name" store value "John"
+      age: 30 // by key "age" store value 30
+   };</code>  </pre> </div>
+    <p>A property has a key (also known as “name” or “identifier”) before the colon ":" and a value to the right of it.
+
+      In the user object, there are two properties:
+
+      The first property has the name "name" and the value "John".
+      The second one has the name "age" and the value 30.
+
+      The resulting user object can be imagined as a cabinet with two signed files labeled “name” and “age”</p>
+    <p>We can add, remove and read files from it any time.
+
+      Property values are accessible using the dot notation:</p>
+   <div class="codebox"> <pre> <code>// get property values of the object:
+      alert( user.name ); // John
+      alert( user.age ); // 30
+      let user = {
+      name: "John",
+      age: 30,
+      "likes birds": true // multiword property name must be quoted
+      };
+     </code> </pre> </div>
+    
+    <h2>Square brackets</h2>
+    <p class="text-content">JavaScript doesn’t understand that. It thinks that we address user.likes, and then gives a syntax error when comes across unexpected birds.
+
+      The dot requires the key to be a valid variable identifier. That implies: contains no spaces, doesn’t start with a digit and doesn’t include special characters ($ and _ are allowed).
+
+      There’s an alternative “square bracket notation” that works with any string:</p>
+   <div class="codebox">  <pre> <code>let user = {};
+
+      // set
+      user["likes birds"] = true;
+
+      // get
+      alert(user["likes birds"]); // true
+
+      // delete
+     delete user["likes birds"];</code> </pre> </div>
+    <p class="text-content">Now everything is fine. Please note that the string inside the brackets is properly quoted (any type of quotes will do).
+
+      Square brackets also provide a way to obtain the property name as the result of any expression – as opposed to a literal string – like from a variable as follows:</p>
+  <div class="codebox"> <pre> <code>let user = {
+      name: "John",
+      age: 30
+      };
+
+      let key = prompt("What do you want to know about the user?", "name");
+
+      // access by variable
+    alert( user[key] ); // John (if enter "name")</code> </pre> </div>
+    <h2>Computed properties</h2>
+    <p class="text-content">The meaning of a computed property is simple: [fruit] means that the property name should be taken from fruit.
+
+      So, if a visitor enters "apple", bag will become {apple: 5}.
+
+      Essentially, that works the same as:</p>
+  <div class="codebox"> <pre> <code>let fruit = prompt("Which fruit to buy?", "apple");
+      let bag = {};
+
+      // take property name from the fruit variable
+    bag[fruit] = 5;</code> </pre> </div>
+    <h2>Property value shorthand</h2>
+  <div class="codebox"> <pre> <code>function makeUser(name, age) {
+      return {
+      name: name,
+      age: age,
+      // ...other properties
+      };
+      }
+
+      let user = makeUser("John", 30);
+    alert(user.name); // John</code> </pre> </div>
+    <p class="text-content">n the example above, properties have the same names as variables. The use-case of making a property from a variable is so common, that there’s a special property value shorthand to make it shorter.</p>
+  </section>
+    
+  <section class="main-section" id="Data_types">
+    <header class="section-header">Data types</header>
+    <h1 class="section-title">Methods of primitives</h1>
+    <p class="text-content">JavaScript allows us to work with primitives (strings, numbers, etc.) as if they were objects. They also provide methods to call as such. We will study those soon, but first we’ll see how it works because, of course, primitives are not objects (and here we will make it even clearer).
+
+      Let’s look at the key distinctions between primitives and objects.
+
+      A primitive</p>
+    <ul>
+      <li>Is a value of a primitive type.</li>
+      <li>There are 7 primitive types: string, number, bigint, boolean, symbol, null and undefined.</li>
+    </ul>
+    <p>An object:</p>
+    <ul>
+      <li>Is capable of storing multiple values as properties.</li>
+      <li>Can be created with {}, for instance: {name: "John", age: 30}. There are other kinds of objects in JavaScript: functions, for example, are objects.</li>
+    </ul>
+    <p class="text-content">One of the best things about objects is that we can store a function as one of its properties.</p>
+    <div class="codebox"> <pre> <code>let john = {
+        name: "John",
+        sayHi: function() {
+        alert("Hi buddy!");
+        }
+        };
+
+        john.sayHi(); // Hi buddy!</code> </pre> </div>
+    <h2>A primitive as an object</h2>
+    <p class="text-content">Here’s the paradox faced by the creator of JavaScript:
+
+      There are many things one would want to do with a primitive like a string or a number. It would be great to access them as methods.
+      Primitives must be as fast and lightweight as possible.
+
+      The solution looks a little bit awkward, but here it is:</p>
+    <ol>
+      <li>Primitives are still primitive. A single value, as desired.</li>
+      <li>The language allows access to methods and properties of strings, numbers, booleans and symbols.</li>
+      <li>In order for that to work, a special “object wrapper” that provides the extra functionality is created, and then is destroyed.</li>
+    </ol>
+  </section>
+    
+</main>
+<footer id="footer">
+  <p class="footer-text">© 2007—2021 JavaScript info</p>
+  <a href="https://javascript.info/js"> Click here to read more</a>
+</footer>
